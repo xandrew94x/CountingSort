@@ -1,7 +1,7 @@
 # CountingSort
 
                                                       //ITA//
-"Counting Sort Code" è un esempio di Counting Sort con commenti (ita/eng) per semplificare e aiutare amici e colleghi nell'implementazione di questo metodo.
+"Counting Sort Code" è un semplice esempio di Counting Sort con commenti (ita/eng) per semplificare e aiutare amici e colleghi nell'implementazione di questo metodo.
 
                                                       //ENG//
 
