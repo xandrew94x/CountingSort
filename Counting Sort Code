@@ -4,27 +4,27 @@
 using namespace std;
 
 
-void countingSort(int *a, int n){					                    //procedura countingsort
-	int max = a[0];									                            //si imposta max il primo el.
-	int min = a[0];									                            //si imposta min il primo el.
-	for(int i = 0; i<n; i++){						                        //si scorre l'array per dterminare il min e il max
+void countingSort(int *a, int n){					//procedura countingsort
+	int max = a[0];							//si imposta max il primo el.
+	int min = a[0];							//si imposta min il primo el.
+	for(int i = 0; i<n; i++){					//si scorre l'array per dterminare il min e il max
 		  if(max<a[i]) max=a[i];						
 		  if(min>a[i]) min=a[i];						
 	}
-	int range = max-min+1;							                        //formula per determinare il range dell'array c
-	int *c = new int[range];						                        //creazione array c di lung. range
-	int *b = new int[n];							                          //creazione array di supporto
-	for(int i = 0; i<=range; i++) c[i] = 0;			                //inizializzare 0 i valori di c
-	for(int i = 0; i<n; i++) c[a[i]-min]++;			                //incrementare i valori in c, a secondo dei valori in a
-	for(int i = 1; i<=range; i++) c[i] += c[i-1];	              //sommare i valori di c, si parte da n=1+il suo predecessore e si incrementa, sommando i predecessori con i
-	for(int i = n; i>=0; i--){						                      //mettere valore nell'array di supporto scorrendo in modo decrescente la lung. n
-		b[c[a[i]-min]-1] = a[i];					                        //la posizione di b data dal range in c del valore in a -1
-		c[a[i]-min]--;								                            //il range di c della determinata posizione si decrementa
+	int range = max-min+1;						//formula per determinare il range dell'array c
+	int *c = new int[range];					//creazione array c di lung. range
+	int *b = new int[n];						//creazione array di supporto
+	for(int i = 0; i<=range; i++) c[i] = 0;			        //inizializzare 0 i valori di c
+	for(int i = 0; i<n; i++) c[a[i]-min]++;			      	//incrementare i valori in c, a secondo dei valori in a
+	for(int i = 1; i<=range; i++) c[i] += c[i-1];	              	//sommare i valori di c, si parte da n=1+il suo predecessore e si incrementa, sommando i predecessori con i
+	for(int i = n; i>=0; i--){					//mettere valore nell'array di supporto scorrendo in modo decrescente la lung. n
+		b[c[a[i]-min]-1] = a[i];				//la posizione di b data dal range in c del valore in a -1
+		c[a[i]-min]--;						//il range di c della determinata posizione si decrementa
 	}	
-	for(int i = 0; i<n; i++) a[i] = b[i];			                  //si ricopiano i valori dall'array di supporto
+	for(int i = 0; i<n; i++) a[i] = b[i];			        //si ricopiano i valori dall'array di supporto
 }
 
-void print(int *a, int n) {							                      //procedura stampa array
+void print(int *a, int n) {						//procedura stampa array
 	for(int i=0; i<n; i++)
 		cout << a[i] << " ";
 	cout << endl;
